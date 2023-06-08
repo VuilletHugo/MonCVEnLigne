@@ -419,12 +419,18 @@ footer>ul{
         height: 300px;
         margin: 0px;
     }
+    .profil{
+        display: flex;
+        margin: 10px;
+        height: 600px;
+        width: 30%;
+    }   
     .passif{
         margin: 10px;
-        font-size: 2em;
+        font-size: 1.5em;
     }
     .blocxp{
-        width: 90%;
+        width: 70%;
         margin-left: 0%;
     }
     .bac{
@@ -437,5 +443,38 @@ footer>ul{
         transition: 1s;
         opacity: 0;
     }
-
+    h1{
+        
+        color: white;
+        text-align: center;
+        font-size: 2em; 
+    }
+    .decouvrir{
+        border: 2px solid rgba(67, 65, 94, 0.766) ;
+        background-color: rgba(69, 66, 95, 0.377);
+        font-family: 'Playfair Display', serif;
+        font-size: 2em;
+        padding: 10px;
+        margin-left: 25%;
+        margin-top: 10px;
+        border-radius: 15px;
+        font-weight: bold;
+        transition: 0.5s;
+    }
+    h2{
+        text-align: center;
+        margin-bottom: 6px;
+        font-size: 2em;
+    }
+    .fullxp{
+        display: flex;
+        justify-content:none;
+        margin: 10px;
+        text-align: center;
+    }
+    h4{
+        text-align: center;
+        font-size: 2em;
+        margin: 30px;
+    }
 }
