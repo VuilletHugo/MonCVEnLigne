@@ -1,12 +1,22 @@
-//bouton menu deroulant//
+//id adresse //
+let a = location.href;
+let b = a.split('/');
+let c = b.pop('/');
+
+//---------bouton menu deroulant----------//
+
 const navbar = document.querySelector(`.menu`);
-//onglet du menu deroulant//
+
+//--------onglet du menu deroulant-------//
+
 const accueil2 = document.querySelector('.accueil2');
 const xppro = document.querySelector('.xppro');
 const formation = document.querySelector('.formation');
 const loisirs = document.querySelector('.loisirs');
 const contact = document.querySelector('.contact');
-//menu burger //
+
+//--------------------menu burger-------------------- //
+
 const croix1 = document.querySelector('.croix1');
 const croix2 = document.querySelector('.croix2');
 const croix3 = document.querySelector('.croix3');
@@ -14,11 +24,14 @@ const croi1 = document.querySelector('#croi1');
 const croi2 = document.querySelector('#croi2');
 const croi3 = document.querySelector('#croi3');
 
-//animation bouton burger au scroll //
+//---------animation bouton burger au scroll--------- //
 
 window.addEventListener("scroll",(e)=>{
-
-    if( window.scrollY > 120){
+    if (window.matchMedia("(max-width: 800px)").matches){
+        navbar.style.top ="20px"
+    
+    }
+    else if( window.scrollY > 120){
         navbar.style.top ="20px"
     }
         else{
@@ -34,7 +47,7 @@ window.addEventListener("scroll",(e)=>{
         }
 })
 
-//animation au click menu déroulant//
+//---------animation au click menu déroulant---------//
 
 navbar.addEventListener("click",(event)=>{
 
@@ -61,76 +74,100 @@ navbar.addEventListener("click",(event)=>{
 })
 
 
-//PAGE FORMATIONS//
+//-------------PAGE FORMATIONS-------------//
 
 const formcastel = document.querySelector('.formcastel');
 const imgcastel = document.querySelector('.castel');
 const formcesi = document.querySelector('.formcesi');
 const imgcesi = document.querySelector('.cesi');
-//apparition des sections au scroll //
+
+//-------apparition des sections au scroll -------//
+
+if(c== 'formation.html'){
 window.addEventListener("scroll", ()=>{
+
     if(window.scrollY >300){
-        imgcastel.style.height = "450px";
+        
+        if (window.matchMedia("(max-width: 800px)").matches){
+            
+            imgcastel.style.height = "250px";
+            formcastel.style.opacity ="1";
+        }else{
+         imgcastel.style.height = "450px";
         formcastel.style.opacity ="1";
+        }
+
     }
-
-    if(window.scrollY >700){
-        imgcesi.style.height = "450px";
-        formcesi.style.opacity ="1";
+        if(window.scrollY >700){
+            if (window.matchMedia("(max-width: 800px)").matches){
+                imgcesi.style.height = "250px";
+                formcesi.style.opacity ="1";
+            }else{
+                imgcesi.style.height = "450px";
+                formcesi.style.opacity ="1";
+            }
     }
+})}
 
-})
+//-------------PAGE LOISIRS-------------//
 
-
-//PAGE LOISIRS//
 const loisir = document.querySelector('.loisir');
-//variable texte //
+
+//-------------variable texte------------- //
+
 const lecture = document.querySelector('.lecture');
 const cuisine = document.querySelector('.cuisine');
 const jeuxvideo = document.querySelector('.jeuxvideo');
 const escalade = document.querySelector('.escalade');
-//variable img//
+
+//--------------variable img--------------//
+
 const imglecture = document.querySelector('.livre');
 const imgcuisine = document.querySelector('.logocuisine');
 const imgjeuxvideo = document.querySelector('.karmine');
 const imgescalade = document.querySelector('.grimpe');
 
+if(c== 'passetemps.html'){
 window.addEventListener('scroll',()=>{
+    
     if(window.scrollY>150){
         lecture.style.opacity ="1"
         cuisine.style.opacity ="1"
         jeuxvideo.style.opacity ="1"
         escalade.style.opacity ="1"
     }
-})
+})}
 
+//--------------PAGE ACCUEIL--------------//
 
-//PAGE ACCUEIL//DOIT ETRE A LA FIN DU DOC//
 const intro = document.querySelector("#intro");
-const txt = intro.dataset.label;
+
 const photomoi = document.querySelector('.photomoi');
+const decouvrir = document.querySelector('.decouvrir'); 
 let i 	= 0 ;
 
-//fonction apparition texte d'intro//
-function texteintro()
-{
-  let timeOut ;
-  if(i < txt.length)
-	{
-	  intro.innerHTML += txt[i];
-	  timeOut = setTimeout(texteintro,1)
-	  i++
-	}
-	else
-	{
-	  clearTimeout(timeOut);
-      photomoi.style.opacity ="1"
+//------fonction apparition texte d'intro------//
 
-	}
-}
+if(c== 'index.html'){ 
+const txt = intro.dataset.label;
 
-window.addEventListener('scroll',()=>{
-    if(window.scrollY>250){
-        texteintro();
+    function texteintro()
+    {
+    let timeOut ;
+    if(i < txt.length)
+        {
+        intro.innerHTML += txt[i];
+        timeOut = setTimeout(texteintro,1)
+        i++
+        }
+        else
+        {
+        clearTimeout(timeOut);
+        photomoi.style.opacity ="1"
+        }
     }
-})
+    decouvrir.addEventListener('click',()=>{
+            decouvrir.remove()
+            texteintro();
+        
+    })}
